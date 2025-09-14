@@ -76,12 +76,9 @@
     - `(-i|--interactive)`          : Manual rebase allow you to rewrite history (reorder, rewrite message, split or squash, ...)
     - *Fast-foward*                 : If the current branch is an ancestor of `<destination-branch>`, current branch will simply move
 - `git rebase (--continue|--abort)` : Fix merge conflict and then continue (you need to tell git that the conflict has been resolved with `git add`) or abort
-
-# Others
+- `git rebase --onto <newbase> <upstream> <branch>` : Take everything between `<upstream>` and `<branch>` and put it on `<newbase>`
 
 `git cherry-pick`
-
-`git tag`
 
 # Reverting change
 
@@ -120,6 +117,12 @@
 `git fetch`
 
 `git pull`
+- merge ?
 - `(-r|--rebase)`
+- fast-foward ?
 
 `git push`
+
+# Others
+
+`git tag`
