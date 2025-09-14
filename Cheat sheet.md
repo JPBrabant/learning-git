@@ -40,20 +40,31 @@
 
 # Branching
 
-`git branch <branchName>`
-- `-d` or `--delete` : Delete a branch
-- `-f` `--force <branchName> <commit>` : Move the branch to another commit
+`branch`
+- `git branch`                                          : List all local branches
+    - `(-a|--all)`                                      : List all local and remote branches
+- `git branch <branch-name>`                            : Create a branch (but don't switch to it)
+    - `<start-point>`                                   : By default, `start-point` is `HEAD` but it can be a tag, commit hash, ancestry, HEAD or branch name
+- `git branch (-m|--move) <old-name> <new-name>`        : Rename
+- `git branch (-d|--delete) <branch-name>`              : Delete
+- `git branch (-f|--force) <branch-name> <start-point>` : Move the branch to a new commit
 
-`git switch <branch>`
-- `-c` or `--create` : Create and switch branch
-- `-d` or `--detached` : Used for detached HEAD, like switching to a remote branch
-- `-` : Shortcut to switch to the previous branch.
+`switch`
+- `git switch <branch>`                      : Switch to a branch (`-` shortcut for the previous branch)
+    - `(-c|--create)`                        : Create and switch branch
+- `git switch (-d|--detached) <start-point>` : Used for detached HEAD (switch to a specific commit or a remote branch because you can't edit a remote branch)
 
-`git merge <branch>` : Pull the branch toward you
-- Allow you to fast foward
+`merge`
+- `git merge <commit>`             : Incorporates changes from the named commits (since the time their histories diverged) into the current branch
+    - *Fast-foward*                : If the current branch is an ancestor of `<commit>`, current branch will simply move
+- `git merge (--continue|--abort)` : Fix merge conflict and then continue (you need to tell git that the conflict has been resolved with `git add`) or abort
 
-`git rebase <branch>` : Push you toward the branch
-- `git rebase <mainBranch> <featureBranch>` : If you want to rebase 2 branches without having to `git switch` to *mainBranch* first
+`rebase`
+- `git rebase <destination-branch>` : Move changes from the current branch (since the time their histories diverged) to `<destination-branch>`
+    - `<source-branch>`             : Move changes from `<source-branch>` to `<destination-branch>`
+    - `(-i|--interactive)`          : Manual rebase allow you to rewrite history (reorder, rewrite message, split or squash, ...)
+    - *Fast-foward*                 : If the current branch is an ancestor of `<destination-branch>`, current branch will simply move
+- `git rebase (--continue|--abort)` : Fix merge conflict and then continue (you need to tell git that the conflict has been resolved with `git add`) or abort
 
 # Others
 
