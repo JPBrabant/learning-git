@@ -1,3 +1,7 @@
+# Help
+
+`git help <command>`
+
 # Creating a repository
 
 `git init`
@@ -8,7 +12,7 @@
 - `-d` : Include untracked directories
 - `-x` : Include ignored files (files in .gitignore)
 - `-n` or `--dry-run` : See what it will delete
-- `f` or `--force` : Necessery to have this option because it will permanently delete files
+- `-f` or `--force` : Necessery to have this option because it will permanently delete files
 
 # Info about your repository
 
@@ -23,6 +27,12 @@
 
 `git blame`
 
+`git grep`
+
+`git diff`
+- `--name-only`
+- `--cached|--staged`
+
 # Commiting
 
 `git add`
@@ -30,6 +40,7 @@
 - `-i` : Interactive add
 
 `git rm`
+- `--cached <file>` : Tell git to forget about a file without deleting it from your working directory
 
 `git mv`
 
@@ -76,7 +87,7 @@
 
 `git restore [--] <pathspec>`
 - `--source`
-- `--staged`
+- `--staged` : Remove a staged change.
 - `--worktree`
 
 `git revert`
@@ -109,11 +120,6 @@
 `git fetch`
 
 `git pull`
+- `(-r|--rebase)`
 
 `git push`
-
-# Debuging
-
-`git bisect`
-
-`git diff`
