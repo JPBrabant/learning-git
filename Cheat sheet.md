@@ -90,18 +90,31 @@ This command change where HEAD is pointing and try to update both the working di
 
 # Reverting change
 
-`git restore [--] <pathspec>`
-- `--source`
-- `--staged` : Remove a staged change.
-- `--worktree`
+`restore`
+Staged and worktree can both be used, if none is used, workstree is assumed. If source is omited, for staged, HEAD is assumed, for worktree, the index is assumed.
+- `git restore --source <commit> <file>`
+    - `--staged`   : Restore `<file>` from `<source-commit>` to the staging area
+    - `--worktree` : Restore `<file>` from `<source-commit>` to the working directory
+- `git restore <file>`                              : Restore working directory `<file>` from the index
+- `git restore --worktree <file>`                   : Restore working directory `<file>` from the index
+- `git restore --staged <file>`                     : Restore index `<file>` from HEAD
+- `git restore --staged --worktree <file>`          : Restore index and working directory `<file>` from HEAD
+- `git restore --source <commit> --worktree <file>` : Restore working directory `<file>` from `<commit>`, usually HEAD
 
-`git revert`
+`revert`
+- `git revert <commit>` : Create a new commit that revert the change made in `<commit>`
 
-`git reset`
-- `--soft` : Update just the branch 
-- `--mixed` : Update the branch then the index
-- `--hard` : Update the branch, the index, and then the working directory
-- `-p` or `--patch` : Partially reseting a file
+# History
+
+`reset` 
+Reset move the branch that HEAD is pointing to. 
+`git reset <commit>`
+    - `--soft`  : Update just the branch; the staging area is untouched, it still contain a copy of your last commit and everything you staged after
+    - `--mixed` : Update the branch then the index; everything has been unstaged
+    - `--hard`  : Update the branch, the index, and then the working directory
+`git reset <commit> <file>` : Copy `<file>` as it was in `<commit>` to the index
+    - `(--patch | -p)`           : Partially reseting a file
+
 
 # Stash
 
