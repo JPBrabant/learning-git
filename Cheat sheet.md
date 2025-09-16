@@ -52,6 +52,7 @@
 `git mv`
 
 `git commit`
+Git creates a new commit and moves the branch that HEAD points to, up to it.
 - `-m` or `--message` : Include the message (if omited, the editor will open)
 - `-a` or `--all` : Include all change (skip staging), modified or deleted but not new files
 - `--ammend` : Modify the last commit
