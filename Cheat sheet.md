@@ -20,6 +20,7 @@
 - `--all` : All branches, not only the current one. 
 - `--oneline` : Only the commit hash and the commit message will appear
 - `--graph` : Usefull to see merge
+- `--follow <path>` : See all commit that change a file.
 
 `show`
 - `git show <commit>:<path>` : Show the content of a file at a specific `<commit>`, if `<commit>` is omited, the index is assumed
