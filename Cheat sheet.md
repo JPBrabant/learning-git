@@ -21,7 +21,8 @@
 - `--oneline` : Only the commit hash and the commit message will appear
 - `--graph` : Usefull to see merge
 
-`git show`
+`show`
+- `git show <commit>:<path>` : Show the content of a file at a specific `<commit>`, if `<commit>` is omited, the index is assumed
 
 `git status`
 
@@ -32,6 +33,12 @@
 `git diff`
 - `--name-only`
 - `--cached|--staged`
+
+`ls-files`
+- `git ls-files`      : Show the list of file 
+    - `(-c|--cached)` : Show all files cached in Git’s index, i.e. all tracked files
+    - `(-s|--stage)`  : Show staged contents
+
 
 # Commiting
 
