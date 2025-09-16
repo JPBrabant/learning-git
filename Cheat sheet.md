@@ -68,7 +68,8 @@
 - `git branch (-f|--force) <branch-name> <start-point>` : Move the branch to a new commit
 
 `switch`
-- `git switch <branch>`                      : Switch to a branch (`-` shortcut for the previous branch)
+This command change where HEAD is pointing and try to update both the working directory and the index with the content of the commit. If you have uncomited change that would conflit, the command abort. 
+- `git switch <branch>`                      : Move HEAD to a branch (`-` shortcut for the previous branch)
     - `(-c|--create)`                        : Create and switch branch
 - `git switch (-d|--detached) <start-point>` : Used for detached HEAD (switch to a specific commit or a remote branch because you can't edit a remote branch)
 
