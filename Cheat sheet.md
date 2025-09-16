@@ -2,6 +2,7 @@
 
 `git help <command>`
 
+
 # Creating a repository
 
 `git init`
@@ -13,6 +14,7 @@
 - `-x` : Include ignored files (files in .gitignore)
 - `-n` or `--dry-run` : See what it will delete
 - `-f` or `--force` : Necessery to have this option because it will permanently delete files
+
 
 # Info about your repository
 
@@ -60,6 +62,7 @@ Git creates a new commit and moves the branch that HEAD points to, up to it.
 - `-a` or `--all` : Include all change (skip staging), modified or deleted but not new files
 - `--ammend` : Modify the last commit
 
+
 # Branching
 
 `branch`
@@ -91,6 +94,7 @@ This command change where HEAD is pointing and try to update both the working di
 - `git rebase --onto <newbase> <upstream> <branch>` : Take everything between `<upstream>` and `<branch>` and put it on `<newbase>`
 
 `git cherry-pick`
+
 
 # Reverting change
 
@@ -137,6 +141,7 @@ Reset move the branch that HEAD is pointing to.
 
 `git stash drop [stash]` : Delete a specifi stash (from `git stash list`)
 
+
 # Remote
 
 `git fetch`
@@ -147,6 +152,7 @@ Reset move the branch that HEAD is pointing to.
 - fast-foward ?
 
 `git push`
+
 
 # Others
 
