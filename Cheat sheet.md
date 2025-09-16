@@ -42,12 +42,14 @@
 
 # Commiting
 
-`git add`
-- `-p` or `--patch` : Allow you to stage part of a file
-- `-i` : Interactive add
+`add`
+-`git add`
+    - `(-p|--patch)` : Allow you to stage part of a file
+    - `(-A|-all)`    : All files in the entire working tree are updated in the index
 
-`git rm`
-- `--cached <file>` : Tell git to forget about a file without deleting it from your working directory
+`rm`
+- `git rm <file>`          : Removes the file from the index and deletes it from the working directory (next commit shows the file deleted, tell git to stop tracking the file)
+- `git rm --cached <file>` : Removes the file from the index but keep it on disk as an untracked file
 
 `git mv`
 
