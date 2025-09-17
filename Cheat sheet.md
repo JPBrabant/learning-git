@@ -57,7 +57,7 @@
 `git mv`
 
 `git commit`
-Git creates a new commit and moves the branch that HEAD points to, up to it.
+Git creates a new commit and moves the branch that HEAD points to, up to it. In detached mode, HEAD is moved to point directly to the new commit. 
 - `-m` or `--message` : Include the message (if omited, the editor will open)
 - `-a` or `--all` : Include all change (skip staging), modified or deleted but not new files
 - `--ammend` : Modify the last commit
@@ -75,7 +75,7 @@ Git creates a new commit and moves the branch that HEAD points to, up to it.
 - `git branch (-f|--force) <branch-name> <start-point>` : Move the branch to a new commit
 
 `switch`
-This command change where HEAD is pointing and try to update both the working directory and the index with the content of the commit. If you have uncomited change that would conflit, the command abort. 
+Git change where HEAD is pointing and try to update both the working directory and the index with the content of the commit. If you have uncomited change that would conflit, the command abort. 
 - `git switch <branch>`                      : Move HEAD to a branch (`-` shortcut for the previous branch)
     - `(-c|--create)`                        : Create and switch branch
 - `git switch (-d|--detached) <start-point>` : Used for detached HEAD (switch to a specific commit or a remote branch because you can't edit a remote branch)
