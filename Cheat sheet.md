@@ -31,24 +31,27 @@
 
 `git blame`
 
-`git grep`
+`grep`
+Search inside the working directory, the index or the repo. There is a lot of available options.
+- `git grep <search-pattern> <commit>`
 
 `git diff`
 - `--name-only`
 - `--cached|--staged`
 
 `ls-files`
-- `git ls-files`      : Show the list of file 
-    - `(-c|--cached)` : Show all files cached in Git’s index, i.e. all tracked files
-    - `(-s|--stage)`  : Show staged contents
+- `git ls-files`        : Show all filed tracked by git
+    - `(-s|--stage)`    : Show files in the index
+    - `(-u|--unmerged)` : In case a merge failed, show 3 version of the same file where 1. common ancestor, 2. ours changes, 3. theirs changes
 
 
 # Commiting
 
 `add`
 -`git add`
-    - `(-p|--patch)` : Allow you to stage part of a file
-    - `(-A|-all)`    : All files in the entire working tree are updated in the index
+    - `(-i|--interactive)` : Allow you to choose what to add from a list
+    - `(-p|--patch)`       : Allow you to stage part of a file
+    - `(-A|-all)`          : All files in the entire working tree are updated in the index
 
 `rm`
 - `git rm <file>`          : Removes the file from the index and deletes it from the working directory (next commit shows the file deleted, tell git to stop tracking the file)
