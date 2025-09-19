@@ -9,12 +9,6 @@
 
 `git clone`
 
-`git clean` : Remove untracked files in your working repository.
-- `-d` : Include untracked directories
-- `-x` : Include ignored files (files in .gitignore)
-- `-n` or `--dry-run` : See what it will delete
-- `-f` or `--force` : Necessery to have this option because it will permanently delete files
-
 
 # Info about your repository
 
@@ -160,3 +154,11 @@ Reset move the branch that HEAD is pointing to.
 # Others
 
 `git tag`
+
+`clean`
+Cleans the working tree by recursively removing files that are not under version control (like temporary build artifacts or merge conflict files).
+- `git clean`           : Remove untracked files in your working repository.
+    - `-d`              : Include untracked directories
+    - `-x`              : Include ignored files (files in .gitignore)
+    - `(-n|--dry-run)`  : See what it will delete
+    - `(-f|--force)`    : Confirm the delete operation
