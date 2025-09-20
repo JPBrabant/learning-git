@@ -44,17 +44,18 @@ Search inside the working directory, the index or the repo. There is a lot of av
 `add`
 This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. 
 -`git add <pathspec>`      : Stage a file
-    - `<pathspec>`         : File path, directory, wild card
     - `(-p|--patch)`       : Allow you to stage part of a file (hunk)
 -`git add`                 : Stage all files in the current directory (new files YES, modifications YES, deletions NO)
     - `(-u|--update)`      : Stage all files in the current directory (new files NO,  modifications YES, deletions YES)
     - `(-A|--all)`         : Stage all files in the current directory (new files YES, modifications YES, deletions YES)
     - `(-i|--interactive)` : Allow you to choose what files to add from a list
 
-
 `rm`
-- `git rm <file>`          : Removes the file from the index and deletes it from the working directory (next commit shows the file deleted, tell git to stop tracking the file)
-- `git rm --cached <file>` : Removes the file from the index but keep it on disk as an untracked file
+Remove files from the index, or from the working tree **AND** the index. The next commit will show the file deleted, that tell git to stop tracking the file.
+- `git rm <pathspec>` : Removes the file from the index and deletes it from the working directory
+    - `--cached`      : Removes the file from the index but keep it on disk as an untracked file
+    - `(-f|--force)`  : Necessery if the file was never tracked by git (the file will be unrecoverable)
+    - `-r`            : To recurse inside a folder
 
 `git mv`
 
