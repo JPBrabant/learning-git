@@ -42,10 +42,15 @@ Search inside the working directory, the index or the repo. There is a lot of av
 # Commiting
 
 `add`
--`git add`
-    - `(-i|--interactive)` : Allow you to choose what to add from a list
-    - `(-p|--patch)`       : Allow you to stage part of a file
-    - `(-A|-all)`          : All files in the entire working tree are updated in the index
+This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. 
+-`git add <pathspec>`      : Stage a file
+    - `<pathspec>`         : File path, directory, wild card
+    - `(-p|--patch)`       : Allow you to stage part of a file (hunk)
+-`git add`                 : Stage all files in the current directory (new files YES, modifications YES, deletions NO)
+    - `(-u|--update)`      : Stage all files in the current directory (new files NO,  modifications YES, deletions YES)
+    - `(-A|--all)`         : Stage all files in the current directory (new files YES, modifications YES, deletions YES)
+    - `(-i|--interactive)` : Allow you to choose what files to add from a list
+
 
 `rm`
 - `git rm <file>`          : Removes the file from the index and deletes it from the working directory (next commit shows the file deleted, tell git to stop tracking the file)
@@ -83,8 +88,7 @@ Git change where HEAD is pointing and try to update both the working directory a
 - `git merge (--continue|--abort)` : Fix merge conflict and then continue (you need to tell git that the conflict has been resolved with `git add`) or abort
 
 `rebase`
-- `git rebase <destination-branch>` : Move changes from the current branch (since the time their histories diverged) to `<destination-branch>`
-    - `<source-branch>`             : Move changes from `<source-branch>` to `<destination-branch>`
+- `git rebase <destination-branch>` : Move changes from HEAD (since the time their histories diverged) to `<destination-branch>`
     - `(-i|--interactive)`          : Manual rebase allow you to rewrite history (reorder, rewrite message, split or squash, ...)
     - *Fast-foward*                 : If the current branch is an ancestor of `<destination-branch>`, current branch will simply move
 - `git rebase (--continue|--abort)` : Fix merge conflict and then continue (you need to tell git that the conflict has been resolved with `git add`) or abort
