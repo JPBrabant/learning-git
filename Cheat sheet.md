@@ -41,29 +41,32 @@ Search inside the working directory, the index or the repo. There is a lot of av
 
 # Commiting
 
+Commiting is the act of saving a snapshot of your code. The process consist of staging your changes and then commiting. When you commit, a snapshot of the index is saved. The index start as a copy of everything that was saved in a commit, and the index is updated with `add`, `rm` and `mv`. 
+
 `add`
-This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. 
--`git add <pathspec>`      : Stage a file
-    - `(-p|--patch)`       : Allow you to stage part of a file (hunk)
--`git add`                 : Stage all files in the current directory (new files YES, modifications YES, deletions NO)
-    - `(-u|--update)`      : Stage all files in the current directory (new files NO,  modifications YES, deletions YES)
-    - `(-A|--all)`         : Stage all files in the current directory (new files YES, modifications YES, deletions YES)
-    - `(-i|--interactive)` : Allow you to choose what files to add from a list
+Updates the index using the current content found in the working tree, to prepare the content staged for the next commit. The index holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. Everyting you add will be saved in the object database of git and can be restored.
+-`git add <pathspec>...`   : Stage a file.
+    - `(-p|--patch)`       : Allow you to stage part of a file (hunk).
+-`git add`                 : Stage all files in the current directory (new files YES, modifications YES, deletions NO).
+    - `(-u|--update)`      : Stage all files in the current directory (new files NO,  modifications YES, deletions YES).
+    - `(-A|--all)`         : Stage all files in the current directory (new files YES, modifications YES, deletions YES).
+    - `(-i|--interactive)` : Allow you to choose what files to add from a list.
 
 `rm`
 Remove files from the index, or from the working tree **AND** the index. The next commit will show the file deleted, that tell git to stop tracking the file.
-- `git rm <pathspec>` : Removes the file from the index and deletes it from the working directory
-    - `--cached`      : Removes the file from the index but keep it on disk as an untracked file
-    - `(-f|--force)`  : Necessery if the file was never tracked by git (the file will be unrecoverable)
-    - `-r`            : To recurse inside a folder
+- `git rm <pathspec>...` : Removes the file from the index and deletes it from the working directory.
+    - `--cached`         : Removes the file from the index but keep it on disk as an untracked file.
+    - `(-f|--force)`     : Necessery if the file was never tracked by git (the file will be unrecoverable).
+    - `-r`               : To recurse inside a folder.
 
-`git mv`
+`mv`
+- `git mv <source> <destination>` : Move or rename a file or directory.
 
-`git commit`
-Git creates a new commit and moves the branch that HEAD points to, up to it. In detached mode, HEAD is moved to point directly to the new commit. 
-- `-m` or `--message` : Include the message (if omited, the editor will open)
-- `-a` or `--all` : Include all change (skip staging), modified or deleted but not new files
-- `--ammend` : Modify the last commit
+`commit`
+Create a new commit containing the current contents of the index. After commiting, git will check at what branch HEAD is pointing, and move this branch to the new commit. In detached HEAD, HEAD is moved itself to point to the new commit.
+Though not required, it's a good idea to begin the commit message with a single short (no more than 50 characters) line summarizing the change, followed by a blank line and then a more thorough description. 
+- `git commit`   : Commit the current state of the index. An editor will open to allow you to write a commit message. 
+    - `--ammend` : Overwrite the last commit with the current state of the index.
 
 
 # Branching
