@@ -12,16 +12,23 @@
 
 # Info about your repository
 
-`git log`
-- `--all` : All branches, not only the current one. 
-- `--oneline` : Only the commit hash and the commit message will appear
-- `--graph` : Usefull to see merge
-- `--follow <path>` : See all commit that change a file.
+`log`
+- `git log`                  : Show the whole commit history
+    - `--all`                : All branches, not only the current one (HEAD).
+    - `--oneline`            : Only the commit hash and the commit message will appear.
+    - `--graph`              : Show a graph allowing you to see all merges.
+- `git log <path>...`        : Show commits related to a file.
+    - `--follow`             : Continue listing the history of a file beyond renames (works only for a single file).
+- `git log -S <string>`      : Search `<string>` in the code and show commit that changed that code.
+- `git log --grep <pattern>` : Search the regex `<pattern>` in all commits messages.
+
 
 `show`
+Show commit, tag, branch
 - `git show <commit>:<path>` : Show the content of a file at a specific `<commit>`, if `<commit>` is omited, the index is assumed
 
-`git status`
+`status`
+- `git status` : Show your current branch, if it's up to date with origin, and the state of all untracked and tracked files.
 
 `git blame`
 
@@ -29,9 +36,10 @@
 Search inside the working directory, the index or the repo. There is a lot of available options.
 - `git grep <search-pattern> <commit>`
 
-`git diff`
-- `--name-only`
-- `--cached|--staged`
+`diff`
+- `git diff` : To see what you've changed but not yet staged.
+    - `--name-only`
+    - `--staged` : See what you've staged that will go into your next commit
 
 `ls-files`
 - `git ls-files`        : Show all filed tracked by git
